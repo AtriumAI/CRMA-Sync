@@ -15,6 +15,12 @@ inputs:
     description: 'If set to true, causes significantly more logging to be output during the process'
     required: true
     default: 'false'
+   github-username:
+    description: 'Username to associate with git commits'
+    required: true
+  github-email:
+    description: 'Email address to associate with git commits'
+    required: true
   git-branch:
     description: 'Branch to push changes to (Default: Main)'
     required: false
@@ -23,14 +29,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    # Get git info (needed for push to repo)
-    - name: set git config
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
-        git config --global user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
-        git config --global user.name "$(gh api /users/${GITHUB_ACTOR} | jq .name -r)"
-        git config -l
     # Checkout full repo, needed to do diff
     - uses: actions/checkout@v4
       with:
@@ -62,3 +60,5 @@ runs:
         API_VERSION: ${{ inputs.api-version }}
         DEBUG_LOGGING: ${{ inputs.debug-logging }}
         GIT_BRANCH: ${{ inputs.git-branch }}
+        GITHUB_EMAIL: ${{ inputs.github-email }}
+        GITHUB_USERNAME: ${{ inputs.github-username }}

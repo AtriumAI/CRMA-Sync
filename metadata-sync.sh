@@ -32,6 +32,10 @@ else
   echo "WARN: API_VERSION not specified. Will use sourceApiVersion from sfdx-project.json, or current latest API version if that is unavailable"
 fi
 
+# Set up Git
+git config --global user.email $GITHUB_EMAIL
+git config --global user.name $GITHUB_USERNAME
+
 cd $GIT_REPO_PATH
 git pull
 
