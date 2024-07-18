@@ -15,6 +15,10 @@ inputs:
     description: 'If set to true, causes significantly more logging to be output during the process'
     required: true
     default: 'false'
+  git-branch:
+    description: 'Branch to push changes to (Default: Main)'
+    required: false
+    default: 'main'
 
 runs:
   using: 'composite'
@@ -49,3 +53,4 @@ runs:
         SFDX_AUTH_URL: ${{ inputs.sfdx-auth-url }}
         API_VERSION: ${{ inputs.api-version }}
         DEBUG_LOGGING: ${{ inputs.debug-logging }}
+        GIT_BRANCH: ${{ inputs.git-branch }}
