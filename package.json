@@ -1,0 +1,13 @@
+{
+  "name": "CRMA-sync",
+  "version": "1.0.0",
+  "description": "This is a github action to assist in automating Salesforce CRMA object backup to a repository.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sf": "sf"
+  },
+  "private": true,
+  "dependencies": {
+    "@salesforce/cli": "2.50.6"
+  }
+}

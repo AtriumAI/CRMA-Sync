@@ -1,0 +1,51 @@
+name: 'CRMA-Sync'
+description: 'Use sfdx/sfpowerkit to pull down CRMA Objects and sync to repository'
+inputs:
+  sfdx-auth-url:
+    description: 'SFDX Login url for org'
+    required: true
+  api-version:
+    description: 'Metadata API version to use during retrieve/deploy (used only when sourceApiVersion is
+      not specified in your sfdx-project.json file). If sourceApiVersion IS specified in the sfdx-project.json
+      file, that value OVERRIDES anything specified here. If NO values are specified (here or in sfdx-project.json),
+      defaults to the current highest API version for the org.'
+    required: false
+    default: ''
+  debug-logging:
+    description: 'If set to true, causes significantly more logging to be output during the process'
+    required: true
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    # Checkout full repo, needed to do diff
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    # Checkout NPM
+    - name: Setup Node
+      id: npm-setup
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    # Install dependencies
+    - name: Install Dependencies
+      # if: steps.npm-setup.outputs.cache-hit != 'true'
+      run: npm ci
+      shell: bash
+
+    # Add NPM modules to the path
+    - name: Update GITHUB_PATH
+      run: echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
+      shell: bash
+
+    - run: ${{ github.action_path }}/metadata-sync.sh
+      shell: bash
+      env:
+        SFDX_AUTH_URL: ${{ inputs.sfdx-auth-url }}
+        API_VERSION: ${{ inputs.api-version }}
+        DEBUG_LOGGING: ${{ inputs.debug-logging }}

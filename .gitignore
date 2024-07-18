@@ -1,0 +1,204 @@
+### Please add project specific changes at the top of this file
+
+### END PROJECT SPECIFIC changes
+# This file is used for Git repositories to specify intentionally untracked files that Git should ignore. 
+# If you are not using git, you can delete this file. For more information see: https://git-scm.com/docs/gitignore
+# For useful gitignore templates see: https://github.com/github/gitignore
+
+# Package.xml files
+package.xml
+manifest/*
+!manifest/README.md
+force-app/main/default/contentassets/ 
+force-app/main/default/certs/ 
+force-app/main/default/reports/ 
+force-app/main/default/dashboards/ 
+# Salesforce cache
+.sfdx/
+.localdevserver/
+config.json
+# LWC VSCode autocomplete
+**/lwc/jsconfig.json
+
+# LWC Jest coverage reports
+coverage/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# Eslint cache
+.eslintcache
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Local environment variables
+.env
+
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,windows,salesforce,salesforcedx
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,macos,windows,salesforce,salesforcedx
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Salesforce ###
+# GitIgnore for Salesforce Projects
+# Project Settings and MetaData
+.project
+.settings/
+.metadata
+build.properties
+config
+
+# Apex Log as optional
+apex-scripts/log
+
+# Eclipse specific
+salesforce.schema
+Referenced Packages
+bin/
+tmp/
+config/
+*.tmp
+*.bak
+local.properties
+.settings
+.loadpath
+.classpath
+*.cache
+
+# Illuminated Cloud (IntelliJ IDEA)
+IlluminatedCloud
+out
+.idea
+*.iml
+
+# Mavensmate
+*.sublime-project
+*.sublime-settings
+*.sublime-workspace
+mm.log
+
+# Haoide SublimeText
+.config
+.deploy
+.history
+
+# OSX-specific exclusions
+.[dD][sS]_[sS]tore
+
+# The Welkin Suite specific
+**/.localHistory
+
+*.sfuo
+
+TestCache.xml
+
+TestsResultsCache.xml
+
+### SalesforceDX ###
+# GitIgnore for Salesforce Projects
+# Project Settings and MetaData
+
+# Apex Log as optional
+
+# Eclipse specific
+
+# Illuminated Cloud (IntelliJ IDEA)
+
+# Mavensmate
+
+# Haoide SublimeText
+
+# OSX-specific exclusions
+
+# The Welkin Suite specific
+
+
+
+
+### SalesforceDX Patch ###
+.sfdx
+.sf
+
+### VisualStudioCode ###
+.vscode/*
+changed-sources/
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.ionide
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,windows,salesforce,salesforcedx
