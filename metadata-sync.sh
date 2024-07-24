@@ -44,7 +44,7 @@ for TYPE in "${METADATA_TYPES[@]}"; do
   if [[ $DEBUG_LOGGING ]]; then
     echo "INFO: Retrieving $TYPE metadata..."
   fi
-  sf project retrieve start --metadata "$TYPE" $API_VERSION
+  sf project retrieve start --json --metadata "$TYPE" $API_VERSION
 done
 
 # Git Commit and Push
