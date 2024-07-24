@@ -10,3 +10,28 @@ Create several Repository Variables as well:
 * GIT_BRANCH (target branch to write to, defaults to main)
 * GIT_USERNAME (the Github username to associate with the commit)
 * GIT_EMAIL_ADDRESS (the Github email address to associate with the commit)
+
+# Example workflow action file
+name: crma-sync-prod
+
+on:
+  workflow_dispatch:
+  schedule:
+  # run at 7AM every single day
+  # https://crontab.guru <-- for generating CRON expression
+    - cron: "0 7 * * *"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: AtriumAI/CRMA-Sync@v2
+        name: Sync-CRMA (Production)
+        with:
+          api-version: ${{ vars.API_VERSION }}
+          git-branch: ${{ vars.GIT_BRANCH }}
+          github-username: ${{ vars.GIT_USERNAME }}
+          github-email: ${{ vars.GIT_EMAIL_ADDRESS }}
+          sfdx-auth-url: ${{ secrets.SFDX_AUTH_URL_CI_PROD }}
+          debug-logging: ${{ vars.DEBUG_LOGGING }}
+          
