@@ -12,6 +12,7 @@ Create several Repository Variables as well:
 * GIT_EMAIL_ADDRESS (the Github email address to associate with the commit)
 
 # Example workflow action file
+```
 name: crma-sync-prod
 
 on:
@@ -34,4 +35,4 @@ jobs:
           github-email: ${{ vars.GIT_EMAIL_ADDRESS }}
           sfdx-auth-url: ${{ secrets.SFDX_AUTH_URL_CI_PROD }}
           debug-logging: ${{ vars.DEBUG_LOGGING }}
-          
+```
