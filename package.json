@@ -8,6 +8,6 @@
   },
   "private": true,
   "dependencies": {
-    "@salesforce/cli": "2.50.6"
+    "@salesforce/cli": "2.105.6"
   }
 }
