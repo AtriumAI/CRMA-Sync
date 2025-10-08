@@ -29,14 +29,6 @@ inputs:
     description: 'URL to download SF CLI Linux client. Uses the XZ compressed version. Default is the stable version.'
     required: true
     default: 'https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.xz'
-  sfdx-git-delta-version:
-    description: 'Version of sfdx-git-delta to use (e.g., v6.21.0). Default is latest.'
-    required: true
-    default: 'latest'
-  sf-code-analyzer-version:
-    description: 'Version of code-analyzer to use (e.g., v5.5.0). Default is latest.'
-    required: true
-    default: 'latest'
   debug-logging:
     description: 'If set to true, causes significantly more logging to be output during the process'
     required: true
@@ -60,5 +52,3 @@ runs:
         GITHUB_EMAIL: ${{ inputs.github-email }}
         GITHUB_USERNAME: ${{ inputs.github-username }}
         SF_DOWNLOAD_URL: ${{ inputs.sf-download-url }}
-        SFDX_GIT_DELTA_VERSION: ${{ inputs.sfdx-git-delta-version }}
-        SF_CODE_ANALYZER_VERSION: ${{ inputs.sf-code-analyzer-version }}
