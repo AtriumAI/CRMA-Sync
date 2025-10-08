@@ -29,10 +29,6 @@ inputs:
     description: 'URL to download SF CLI Linux client. Uses the XZ compressed version. Default is the stable version.'
     required: true
     default: 'https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.xz'
-  debug-logging:
-    description: 'If set to true, causes significantly more logging to be output during the process'
-    required: true
-    default: 'false'
 
 runs:
   using: 'composite'
