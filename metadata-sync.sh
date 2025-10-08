@@ -1,6 +1,12 @@
 #!/bin/bash
 set -o errexit -o pipefail -o noclobber -o nounset
-export PATH=$(pwd)/node_modules/.bin:$PATH
+
+# Download sf binary and setup
+wget -q $SF_DOWNLOAD_URL -O sf-linux-x64.tar.xz
+mkdir ~/sf-cli
+tar xJf sf-linux-x64.tar.xz -C ~/sf-cli --strip-components 1
+export PATH=~/sf-cli/bin:$PATH
+
 if [[ $DEBUG_LOGGING ]]; then
   sf version
 fi

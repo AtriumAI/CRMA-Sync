@@ -10,6 +10,7 @@ Create several Repository Variables as well:
 * GIT_BRANCH (target branch to write to, defaults to main)
 * GIT_USERNAME (the Github username to associate with the commit)
 * GIT_EMAIL_ADDRESS (the Github email address to associate with the commit)
+* OPTIONAL: SF_CLI_DOWNLOAD_URL (the URL for the SF CLI tarball, xz compressed)
 
 # Example workflow action file
 ```
@@ -35,4 +36,5 @@ jobs:
           github-email: ${{ vars.GIT_EMAIL_ADDRESS }}
           sfdx-auth-url: ${{ secrets.SFDX_AUTH_URL_CI_PROD }}
           debug-logging: ${{ vars.DEBUG_LOGGING }}
+          sf-download-url: ${{ vars.SF_CLI_DOWNLOAD_URL }} # Optional, will default to latest
 ```
